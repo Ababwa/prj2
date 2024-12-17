@@ -4,7 +4,7 @@ A description of the PRJ2 file format used by [Tomb Editor](https://github.com/M
 This description attempts to be accurate as of Tomb Editor 1.7.2.
 ## Syntax Guide
 The format is described using a vaguely Rust-like psuedocode, exemplified below:
-```rust
+```cpp
 enum EnumExample {
     VariantA = 3,
     VariantB = 9,
@@ -80,7 +80,7 @@ Multi-byte types are little-endian.
 
 ## Chunks
 The PRJ2 format is made up of "chunks". Except for null chunks, all chunks have the following format:
-```rust
+```cpp
 struct ChunkId {
     id_size: Leb128<i32>,
     id: [u8; id_size],
@@ -100,7 +100,7 @@ The size of the `Data` type argument in `Chunk` must be equal to `data_size`.
 
 Chunks may contain other chunks.
 ## Format
-```rust
+```cpp
 // enums
 
 enum GameVersion {
