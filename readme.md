@@ -1,5 +1,7 @@
 # PRJ2
 A description of the PRJ2 file format used by [Tomb Editor](https://github.com/MontyTRC89/Tomb-Editor).
+
+This description attempts to be accurate as of Tomb Editor 1.7.2.
 ## Syntax Guide
 The format is described using a vaguely Rust-like psuedocode, exemplified below:
 ```rust
@@ -1420,7 +1422,7 @@ typeset TopLevelChunks {
 // whole format
 
 bits Version {
-	0..30: version,	// must be 0 as of Tomb Editor 1.7.2
+	0..30: version,	// must be 0
 	31: compressed,	// indicates that chunk data is zlib-compressed
 }
 
