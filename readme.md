@@ -1001,6 +1001,62 @@ struct ImportedGeometry2 {
 	imported_geometry_id: Leb128<i64>,
 }
 
+struct TriggerVolumeBox1And2 {
+	volume_type: u8 = 0,
+	size: Vec3,
+	yaw: f32,
+	pitch: f32,
+}
+
+struct TriggerVolumeBox3And4 {
+	volume_type: u8 = 0,
+	size: Vec3,
+	yaw: f32,
+	pitch: f32,
+	roll: f32,
+}
+
+struct TriggerVolumeSphere {
+	volume_type: u8 = 1,
+	scale: f32,
+}
+
+struct TriggerVolumeTest {
+	shape: [TriggerVolumeBox1And2, TriggerVolumeSphere],
+	position: Vec3,
+	u16,
+	[SizedUtf8; 5],
+}
+
+struct TriggerVolume1 {
+	shape: [TriggerVolumeBox1And2, TriggerVolumeSphere],
+	position: Vec3,
+	event_set_index: i32,
+}
+
+struct TriggerVolume2 {
+	shape: [TriggerVolumeBox1And2, TriggerVolumeSphere],
+	position: Vec3,
+	event_set_index: i32,
+	lua_name: SizedUtf8,
+}
+
+struct TriggerVolume3 {
+	shape: [TriggerVolumeBox3And4, TriggerVolumeSphere],
+	position: Vec3,
+	event_set_index: i32,
+	lua_name: SizedUtf8,
+}
+
+struct TriggerVolume4 {
+	shape: [TriggerVolumeBox3And4, TriggerVolumeSphere],
+	position: Vec3,
+	enabled: bool,
+	detect_in_adjacent_rooms: bool,
+	event_set_index: i32,
+	lua_name: SizedUtf8,
+}
+
 // chunk stream
 
 struct NullChunk {
@@ -1262,62 +1318,6 @@ struct ImportedGeometry4 {
 	color: ColorF32,
 	imported_geometry_id: Leb128<i64>,
 	chunks: ChunkStream(ImportedGeometry3And4Chunks..),
-}
-
-struct TriggerVolumeBox1And2 {
-	volume_type: u8 = 0,
-	size: Vec3,
-	yaw: f32,
-	pitch: f32,
-}
-
-struct TriggerVolumeBox3And4 {
-	volume_type: u8 = 0,
-	size: Vec3,
-	yaw: f32,
-	pitch: f32,
-	roll: f32,
-}
-
-struct TriggerVolumeSphere {
-	volume_type: u8 = 1,
-	scale: f32,
-}
-
-struct TriggerVolumeTest {
-	shape: [TriggerVolumeBox1And2, TriggerVolumeSphere],
-	position: Vec3,
-	u16,
-	[SizedUtf8; 5],
-}
-
-struct TriggerVolume1 {
-	shape: [TriggerVolumeBox1And2, TriggerVolumeSphere],
-	position: Vec3,
-	event_set_index: i32,
-}
-
-struct TriggerVolume2 {
-	shape: [TriggerVolumeBox1And2, TriggerVolumeSphere],
-	position: Vec3,
-	event_set_index: i32,
-	lua_name: SizedUtf8,
-}
-
-struct TriggerVolume3 {
-	shape: [TriggerVolumeBox3And4, TriggerVolumeSphere],
-	position: Vec3,
-	event_set_index: i32,
-	lua_name: SizedUtf8,
-}
-
-struct TriggerVolume4 {
-	shape: [TriggerVolumeBox3And4, TriggerVolumeSphere],
-	position: Vec3,
-	enabled: bool,
-	detect_in_adjacent_rooms: bool,
-	event_set_index: i32,
-	lua_name: SizedUtf8,
 }
 
 typeset ObjectsChunks {
