@@ -79,7 +79,7 @@ A type may be marked with `<value_set>`, where `value_set` is an `enum` or `bits
 Multi-byte types are little-endian.
 
 ## Chunks
-The PRJ2 format if made up of "chunks". Except for null chunks, all chunks have the following format:
+The PRJ2 format is made up of "chunks". Except for null chunks, all chunks have the following format:
 ```rust
 struct ChunkId {
     id_size: Leb128<i32>,
