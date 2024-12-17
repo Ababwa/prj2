@@ -524,7 +524,7 @@ struct TextureSounds {
 struct TextureBumpmaps {
     width: i32,
     height: i32,
-    texture_sounds: [u8<BumpMappingLevel>; width * height], // row-major order
+    bump_mapping_level: [u8<BumpMappingLevel>; width * height], // row-major order
 }
 
 struct AnimatedTextureSetExtraInfo {
@@ -610,12 +610,12 @@ struct SectorCornerHeightsWorldUnits {
 }
 
 struct SectorFloorWorldUnits {
-    flags: Leb128<i64><SectorFlags>,
+    flags: Leb128<i64><SectorDiagonalDetails>,
     floor: SectorCornerHeightsWorldUnits,
 }
 
 struct SectorCeilingWorldUnits {
-    flags: Leb128<i64><SectorFlags>,
+    flags: Leb128<i64><SectorDiagonalDetails>,
     ceiling: SectorCornerHeightsWorldUnits,
 }
 
