@@ -103,6 +103,11 @@ Chunks may contain other chunks.
 ```cpp
 // enums
 
+enum SoundSystem {
+    None = 0,
+    Xml = 1,
+}
+
 enum GameVersion {
     Tr1 = 1,
     Tr2 = 2,
@@ -1064,7 +1069,7 @@ struct NullChunk {
 }
 
 struct ChunkStream(ExpectedChunkTypes) {
-    chunks: [ExpectedChunkTypes], //any number of non-null chunks
+    chunks: [ExpectedChunkTypes], // any number of non-null chunks
     null_chunk: NullChunk,
 }
 
@@ -1176,7 +1181,7 @@ typeset AutoMergeStaticMeshesChunks {
 
 typeset SettingsChunks {
     struct ObsoleteWadFilePathChunk = Chunk("TeWadFilePath", Utf8);
-    struct SoundSystemChunk = Chunk("TeSoundSystem", Leb128<i32>);
+    struct SoundSystemChunk = Chunk("TeSoundSystem", Leb128<i32><SoundSystem>);
     struct LastRoomChunk = Chunk("TeLastRoom", Leb128<i32>);
     struct FontTextureFilePathChunk = Chunk("TeFontTextureFilePath", Utf8);
     struct SkyTextureFilePathChunk = Chunk("TeSkyTextureFilePath", Utf8);
