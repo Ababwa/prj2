@@ -1381,8 +1381,8 @@ typeset ObjectsChunks {
 typeset RoomDataChunks {
     struct RoomIndexChunk = IndexChunk;
     struct RoomNameChunk = NameChunk;
-    struct RoomPositionOldChunk = Chunk("TePos", Vec3); // x, z in world units, y in clicks // DEPRECATED
-    struct RoomPositionChunk = Chunk("TePos2", Vec3);   // world units
+    struct RoomPositionOldChunk = Chunk("TePos", Vec3); // x, z in sectors, y in clicks // DEPRECATED
+    struct RoomPositionChunk = Chunk("TePos2", Vec3);   // x, z in sectors, y in world units
     struct RoomTagsChunk = Chunk("TeTags", Utf8);       // a number of tags separated by spaces
     struct RoomSectorsChunk = Chunk("TeSecs", ChunkStream(SectorChunk));
     struct RoomAmbientLightChunk = Chunk("TeAmbient", ColorF32);
