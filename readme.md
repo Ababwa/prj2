@@ -956,7 +956,7 @@ struct GhostBlockClicks {
     ceiling_xpzp: Leb128<i16>,
 }
 
-struct GhostBlockClicks {
+struct GhostBlockWorldUnits {
     sector_x: Leb128<i32>,
     sector_z: Leb128<i32>,
     floor_xnzn: Leb128<i32>, // heights in world units
@@ -1244,7 +1244,7 @@ typeset SectorDataChunks {
 }
 
 struct Sector {
-    position: i32, // row-major sector position
+    position: i32, // x-major sector position
     sector_data_chunks: ChunkStream(SectorDataChunks..),
 }
 
