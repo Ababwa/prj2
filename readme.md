@@ -934,10 +934,10 @@ struct Light5 {
 }
 
 struct Portal {
-    min_x: Leb128<i32>,
-    min_y: Leb128<i32>,
-    max_x: Leb128<i32>,
-    max_y: Leb128<i32>,
+    sector_min_x: Leb128<i32>,
+    sector_min_z: Leb128<i32>,
+    sector_max_x: Leb128<i32>, // inclusive max
+    sector_max_z: Leb128<i32>,
     adjoining_room_index: Leb128<i64>,
     direction: u8<PortalDirection>,
     opacity: u8<PortalOpacity>,
@@ -970,10 +970,10 @@ struct GhostBlockWorldUnits {
 }
 
 struct Trigger1 {
-    min_x: Leb128<i32>,
-    min_z: Leb128<i32>,
-    max_x: Leb128<i32>,
-    max_z: Leb128<i32>,
+    sector_min_x: Leb128<i32>,
+    sector_min_z: Leb128<i32>,
+    sector_max_x: Leb128<i32>, // inclusive max
+    sector_max_z: Leb128<i32>,
     trigger_type: Leb128<i64><TriggerType>,
     target_type: Leb128<i64><TriggerTargetType>,
     parameter: Leb128<i16>,
@@ -1289,10 +1289,10 @@ typeset Trigger2And3Chunks {
 }
 
 struct Trigger2And3 {
-    min_x: Leb128<i32>,
-    min_z: Leb128<i32>,
-    max_x: Leb128<i32>,
-    max_z: Leb128<i32>,
+    sector_min_x: Leb128<i32>,
+    sector_min_z: Leb128<i32>,
+    sector_max_x: Leb128<i32>, // inclusive max
+    sector_max_z: Leb128<i32>,
     chunks: ChunkStream(Trigger2And3Chunks..),
 }
 
